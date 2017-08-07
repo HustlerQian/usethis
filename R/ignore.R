@@ -25,5 +25,6 @@ use_build_ignore <- function(files, escape = TRUE, base_path = ".") {
 escape_path <- function(x) {
   x <- gsub("\\.", "\\\\.", x)
   x <- gsub("/$", "", x)
+  x <- gsub("(^\\D:)", "\\1\\\\", x)
   paste0("^", x, "$")
 }
